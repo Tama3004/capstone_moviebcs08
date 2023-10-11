@@ -4,9 +4,9 @@ import Footer from "../component/Footer/Footer";
 
 export default function Layout({ children }) {
   return (
-    <div className="space-y-10">
+    <div>
       <Header />
-      {children}
+      <div className="mt-20">{children}</div>
       <Footer />
     </div>
   );

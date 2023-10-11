@@ -3,7 +3,11 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   mode: "jit",
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        200: "650px",
+      },
+    },
   },
   plugins: [],
 };

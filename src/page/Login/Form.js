@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { SET_INFO } from "../../constant/user";
 import { useNavigate } from "react-router-dom";
 import { userLocalStorage } from "../../api/localService";
+import { LoginAction } from "../../redux/action/User";
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
@@ -33,61 +34,64 @@ const FormLogin = () => {
         console.log(err);
       });
   };
+  const onFinish2 = (values) => {
+    dispatch(LoginAction(values));
+  };
   return (
-    <Form
-      className="w-1/2"
-      layout="vertical"
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 20,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="taiKhoan"
-        rules={[
-          {
-            required: true,
-            message: "Please input your username!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="matKhau"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!",
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
+    <div className="w-3/4 p-4 border border-gray-300 rounded-lg bg-white">
+      <Form
+        className="flex-col align-center justify-center"
+        layout="vertical"
+        name="basic"
+        labelCol={{
+          span: 8,
+        }}
         wrapperCol={{
-          offset: 8,
           span: 20,
         }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
       >
-        <Button type="primary" className="bg-orange-600" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          label="Username"
+          name="taiKhoan"
+          rules={[
+            {
+              required: true,
+              message: "Please input your username!",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Password"
+          name="matKhau"
+          rules={[
+            {
+              required: true,
+              message: "Please input your password!",
+            },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 20,
+          }}
+        >
+          <Button type="primary" className="bg-orange-600" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 export default FormLogin;

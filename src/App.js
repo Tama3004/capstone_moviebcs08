@@ -6,6 +6,7 @@ import Login from "./page/Login/Login";
 import DetailMovie from "./page/DetailMovie/DetailMovie";
 import Header from "./component/Header";
 import Layout from "./template/Layout";
+import CheckOut from "./page/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -32,6 +33,14 @@ function App() {
           element={
             <Layout>
               <Login />
+            </Layout>
+          }
+        />
+        <Route
+          path="/checkout/:id"
+          element={
+            <Layout>
+              <CheckOut />
             </Layout>
           }
         />

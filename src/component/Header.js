@@ -40,11 +40,13 @@ export default function Header() {
     }
   };
   return (
-    <div className="h-20 flex items-center justify-between shadow-lg px-20">
-      <a href="/">
-        <span className="text-red-500 animate-pulse text-xl">CyperFlix</span>
-      </a>
-      <div className="space-x-5">{renderUserNav()}</div>
-    </div>
+    <header className="fixed z-50 bg-white h-20 w-screen shadow-lg top-0">
+      <div className="container mx-auto h-full flex items-center justify-between">
+        <a href="/">
+          <span className="text-red-500 animate-pulse text-xl">CyperFlix</span>
+        </a>
+        <div className="space-x-5">{renderUserNav()}</div>
+      </div>
+    </header>
   );
 }

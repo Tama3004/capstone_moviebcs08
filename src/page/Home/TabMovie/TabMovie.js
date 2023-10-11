@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getMovieTheater } from "../../../api/api";
 import { Tabs } from "antd";
 import moment from "moment";
+import { useLocation } from "react-router-dom";
 
 export default function TabMovie() {
   const [danhSachHeThongRap, setdanhSachHeThongRap] = useState([]);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const onChange = (key) => {
     console.log(key);
   };
@@ -25,18 +28,24 @@ export default function TabMovie() {
           <img className="w-20 h-32 object-cover" src={phim.hinhAnh} alt="" />
           <div>
             <p>{phim.tenPhim}</p>
-            <div className="grid grid-cols-4 gap-5">
-              {phim.lstLichChieuTheoPhim.slice(0, 8).map((lichChieu, index) => {
-                return (
-                  <span
-                    className="bg-red-500 text-white rounded p-2 shadow"
-                    key={index}
-                  >
-                    {moment(lichChieu.ngayChieuGioChieu).format("MM-DD-YYYY")}
-                  </span>
-                );
-              })}
-            </div>
+            <button>
+              <div className="grid grid-cols-4 gap-5">
+                {phim.lstLichChieuTheoPhim
+                  .slice(0, 8)
+                  .map((lichChieu, index) => {
+                    return (
+                      <span
+                        className="bg-red-500 text-white rounded p-2 shadow"
+                        key={index}
+                      >
+                        {moment(lichChieu.ngayChieuGioChieu).format(
+                          "MM-DD-YYYY"
+                        )}
+                      </span>
+                    );
+                  })}
+              </div>
+            </button>
           </div>
         </div>
       );
@@ -77,13 +86,14 @@ export default function TabMovie() {
     });
   };
   return (
-    <div className="container shadow p-3 rounded border-2 flex border-black">
+    <div className="container shadow p-3 rounded border-l-black">
       <Tabs
         style={{ height: 500 }}
         tabPosition="left"
         defaultActiveKey="1"
         items={handleHeThongRap()}
         onChange={onChange}
+        className={isHome ? "hidden-mobile" : ""}
       />
     </div>
   );

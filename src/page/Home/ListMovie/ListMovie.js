@@ -17,26 +17,29 @@ export default function ListMovie() {
       });
   }, []);
   return (
-    <div className="grid grid-cols-4 gap-10 container">
-      {movieArr.slice(0,12).map((item, index) => {
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 container">
+      {movieArr.slice(0, 12).map((item, index) => {
         return (
-          <Card key={index}
+          <Card
+            key={index}
             hoverable
-            // style={{ width: 240 }}
             cover={
               <img
-                className="h-48 object-cover"
+                className="h-96 object-fill"
                 alt="example"
                 src={item.hinhAnh}
               />
             }
           >
-            <Meta title="Europe Street beat" description="www.instagram.com" />
-            <button className="px-20 py-5 bg-red-500 center rounded">
-              <NavLink to={`/movie/${item.maPhim}`} className="text-white">
+            <Meta title={item.tenPhim} className="text-center" />
+            <div className="flex justify-center">
+              <NavLink
+                to={`/movie/${item.maPhim}`}
+                className="text-white mt-5 px-20 py-5 bg-red-500 rounded"
+              >
                 BUY
               </NavLink>
-            </button>
+            </div>
           </Card>
         );
       })}
