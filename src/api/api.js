@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, configHeaders } from "./config";
+import { BASE_URL, TOKEN, configHeaders } from "./config";
 
 export let getListMovie = () => {
   return axios({
@@ -46,5 +46,14 @@ export let getPhongVe = (id) => {
     url: `${BASE_URL}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`,
     method: "GET",
     headers: configHeaders(),
+  });
+};
+
+export let postDatGhe = (ThongTinDatVe) => {
+  return axios({
+    url: `${BASE_URL}/QuanLyDatVe/DatVe`,
+    method: "POST",
+    headers: configHeaders(),
+    data: ThongTinDatVe,
   });
 };

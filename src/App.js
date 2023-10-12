@@ -6,7 +6,7 @@ import Login from "./page/Login/Login";
 import DetailMovie from "./page/DetailMovie/DetailMovie";
 import Header from "./component/Header";
 import Layout from "./template/Layout";
-import CheckOut from "./page/CheckOut/CheckOut";
+import CheckOutPage from "./page/CheckOut/CheckOutPage";
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
           path="/checkout/:id"
           element={
             <Layout>
-              <CheckOut />
+              <CheckOutPage />
             </Layout>
           }
         />

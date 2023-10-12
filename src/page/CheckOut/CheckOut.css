@@ -1,0 +1,36 @@
+.ghe {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  background-color: gray;
+  color: white;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+
+.button:active {
+  background-color: khaki;
+}
+
+.gheDaDat {
+  background-color: red;
+  cursor: no-drop;
+}
+
+.gheDangDat {
+  background-color: green !important;
+}
+
+.gheDaDuocDat {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  color: greenyellow;
+  border: greenyellow solid 2px;
+}
