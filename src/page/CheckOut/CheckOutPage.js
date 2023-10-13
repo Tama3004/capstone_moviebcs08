@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatVe from "./DatVe";
 import { Tabs } from "antd";
 import KQDatVe from "./KQDatVe";
+import Header from "../../component/Header";
 
 export default function CheckOutPage() {
   const [currentTab, setCurrentTab] = useState(1);
@@ -28,11 +29,14 @@ export default function CheckOutPage() {
   ];
 
   return (
-    <Tabs
-      className="container py-5 h-screen"
-      defaultActiveKey={currentTab}
-      items={items}
-      onChange={onChange}
-    />
+    <div>
+      <Header />
+      <Tabs
+        className="tab-content container py-5 h-screen"
+        defaultActiveKey={currentTab}
+        items={items}
+        onChange={onChange}
+      />
+    </div>
   );
 }

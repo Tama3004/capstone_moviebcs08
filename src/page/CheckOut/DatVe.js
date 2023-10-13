@@ -9,10 +9,10 @@ import Spinner from "../../component/Spinner/Spinner";
 import { message } from "antd";
 
 export default function DatVe() {
-  const userData = localStorage.getItem("User");
   let { info } = useSelector((state) => {
     return state.userReducer;
   });
+  const userData = localStorage.getItem("User");
   if (!userData) {
     window.location.href = "/login";
   }
@@ -134,40 +134,71 @@ export default function DatVe() {
       {isLoading && <Spinner />}
       <div className="grid grid-cols-12">
         <div className="col-span-8">{renderGhe()}</div>
-        <div className="col-span-4">
-          <h3>NAME MOVIE: {thongTinPhim?.tenPhim} </h3>
-          <p>LOCATION: {thongTinPhim?.diaChi} </p>
-          <p>DATE: {thongTinPhim?.ngayChieu}</p>
-          <p>TIME: {thongTinPhim?.gioChieu} </p>
-          <hr />
-          <div>
-            <p>
-              SEAT:
-              {DanhSachGheDangDat.map((gdd, index) => {
-                return (
-                  <span className="text-green-500" key={index}>
-                    {" "}
-                    {gdd.stt}
-                  </span>
-                );
-              })}
-            </p>
-            <p>
-              Price:{" "}
-              {DanhSachGheDangDat?.reduce((price, ghe, index) => {
-                return (price += ghe.giaVe);
-              }, 0).toLocaleString()}{" "}
-              VND
-            </p>
+        <div className="col-span-4 border border-black shadow-lg rounded">
+          <div className="p-3">
+            <h className="text-4xl flex justify-center items-center">
+              Thanh Toán
+            </h>
+            <hr />
+            <div className="py-5 space-y-3">
+              <h className="text-2xl">
+                NAME MOVIE:
+                <span className="text-lg"> {thongTinPhim?.tenPhim}</span>
+              </h>
+              <p className="text-2xl">
+                LOCATION:
+                <span className="text-lg"> {thongTinPhim?.diaChi}</span>
+              </p>
+              <p className="text-2xl">
+                DATE:
+                <span className="text-lg"> {thongTinPhim?.ngayChieu}</span>
+              </p>
+              <p className="text-2xl">
+                TIME:
+                <span className="text-lg"> {thongTinPhim?.gioChieu}</span>
+              </p>
+            </div>
+            <hr />
+            <div className="py-5 space-y-3">
+              <p className="text-2xl">
+                SEAT:
+                {DanhSachGheDangDat.map((gdd, index) => {
+                  return (
+                    <span className="text-green-500 text-lg" key={index}>
+                      {" "}
+                      {gdd.stt}
+                    </span>
+                  );
+                })}
+              </p>
+              <p className="text-2xl">
+                Price:
+                <span className="text-lg">
+                  {" "}
+                  {DanhSachGheDangDat?.reduce((price, ghe, index) => {
+                    return (price += ghe.giaVe);
+                  }, 0).toLocaleString()}
+                  VND
+                </span>
+              </p>
+            </div>
+            <hr />
+            <div className="py-5 space-y-3">
+              <p className="text-2xl">
+                Email: <span className="text-lg">{info.email}</span>{" "}
+              </p>
+              <hr />
+              <p className="text-2xl">
+                Phone Number: <span className="text-lg">{info.soDT}</span>{" "}
+              </p>
+            </div>
           </div>
-          <hr />
-          <p>Email: {info.email} </p>
-          <hr />
-          <p>Phone Number: {info.soDT} </p>
-          <hr />
-          <div>
-            <button onClick={handleDatVe}>BUY TICKET</button>
-          </div>
+          <button
+            onClick={handleDatVe}
+            className="w-full flex justify-center items-center bg-red-500 py-10"
+          >
+            <p className="text-white text-2xl">BUY TICKET</p>
+          </button>
         </div>
       </div>
     </div>
