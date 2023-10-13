@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getPhongVe, postDatGhe } from "../../api/api";
 import "./CheckOut.css";
 import { CheckCircleOutlined, CloseOutlined } from "@ant-design/icons";
 import { userLocalStorage } from "../../api/localService";
+import Spinner from "../../component/Spinner/Spinner";
+import { message } from "antd";
 
 export default function DatVe() {
   const userData = localStorage.getItem("User");
@@ -20,14 +22,18 @@ export default function DatVe() {
   const [DanhSachGheDangDat, setDanhSachGheDangDat] = useState([]);
   const [updateFlag, setUpdateFlag] = useState(false);
   const [ThongTinDatVe, setThongTinDatVe] = useState({});
+  const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
+    setisLoading(true);
     getPhongVe(params.id)
       .then((res) => {
         setChiTietPhong(res.data.content);
+        setisLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setisLoading(false);
       });
   }, []);
 
@@ -41,15 +47,25 @@ export default function DatVe() {
       maLichChieu: maLichChieu,
       danhSachVe: danhSachVe,
     };
+    if (danhSachVe.length === 0) {
+      message.error("Bạn chưa chọn vị trí");
+      return;
+    }
     setThongTinDatVe(thongTinDatVe);
     postDatGhe(thongTinDatVe)
       .then((res) => {
         console.log(res);
+        message.success("Đặt vé thành công");
+        setisLoading(false);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
+        message.erro("Lỗi");
+        setisLoading(false);
       });
-    setUpdateFlag(!updateFlag);
   };
   console.log({ ThongTinDatVe });
 
@@ -115,6 +131,7 @@ export default function DatVe() {
 
   return (
     <div className="h-screen">
+      {isLoading && <Spinner />}
       <div className="grid grid-cols-12">
         <div className="col-span-8">{renderGhe()}</div>
         <div className="col-span-4">

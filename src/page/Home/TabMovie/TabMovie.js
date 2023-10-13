@@ -3,6 +3,7 @@ import { getMovieTheater } from "../../../api/api";
 import { Tabs } from "antd";
 import moment from "moment";
 import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function TabMovie() {
   const [danhSachHeThongRap, setdanhSachHeThongRap] = useState([]);
@@ -34,14 +35,15 @@ export default function TabMovie() {
                   .slice(0, 8)
                   .map((lichChieu, index) => {
                     return (
-                      <span
+                      <NavLink
+                        to={`/checkout/${lichChieu?.maLichChieu}`}
                         className="bg-red-500 text-white rounded p-2 shadow"
                         key={index}
                       >
                         {moment(lichChieu.ngayChieuGioChieu).format(
                           "MM-DD-YYYY"
                         )}
-                      </span>
+                      </NavLink>
                     );
                   })}
               </div>

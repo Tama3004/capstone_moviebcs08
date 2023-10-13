@@ -3,7 +3,7 @@ import { BASE_URL, TOKEN, configHeaders } from "./config";
 
 export let getListMovie = () => {
   return axios({
-    url: `${BASE_URL}/QuanLyPhim/LayDanhSachPhim?maNhom=GP05`,
+    url: `${BASE_URL}/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`,
     method: "GET",
     headers: configHeaders(),
   });
@@ -55,5 +55,13 @@ export let postDatGhe = (ThongTinDatVe) => {
     method: "POST",
     headers: configHeaders(),
     data: ThongTinDatVe,
+  });
+};
+
+export let postGheDaDat = () => {
+  return axios({
+    url: `${BASE_URL}/QuanLyNguoiDung/ThongTinTaiKhoan`,
+    method: "POST",
+    headers: configHeaders(),
   });
 };
