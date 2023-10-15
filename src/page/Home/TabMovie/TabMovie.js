@@ -88,15 +88,17 @@ export default function TabMovie() {
     });
   };
   return (
-    <div className="container shadow p-3 rounded border-l-black">
-      <Tabs
-        style={{ height: 500 }}
-        tabPosition="left"
-        defaultActiveKey="1"
-        items={handleHeThongRap()}
-        onChange={onChange}
-        className={isHome ? "hidden-mobile" : ""}
-      />
+    <div id="detail" className="py-28">
+      <div className="bg-white container shadow p-3 rounded border-l-black py-20 rounded rounded-3xl">
+        <Tabs
+          style={{ height: 500 }}
+          tabPosition="left"
+          defaultActiveKey="1"
+          items={handleHeThongRap()}
+          onChange={onChange}
+          className={isHome ? "hidden-mobile" : ""}
+        />
+      </div>
     </div>
   );
 }

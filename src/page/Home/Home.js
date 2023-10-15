@@ -6,9 +6,9 @@ import Slider from "./Slider/Slider";
 
 export default function Home() {
   return (
-    <div className="space-y-10">
+    <div>
       <Slider />
-      <ListMovie />
+      <ListMovie  />
       <TabMovie />
     </div>
   );

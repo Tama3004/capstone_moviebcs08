@@ -18,21 +18,22 @@ export default function Header() {
     window.location.reload();
   };
   let renderUserNav = () => {
-    let classBtn = "border-2 border-black rounded-xl px-7 py-3";
+    let classBtn =
+      "rounded rounded-full border-b-2 px-7 py-1 border-black border-2 ";
     if (info) {
       return (
-        <>
-          <span>{info.hoTen}</span>
-          <button onClick={handleLogOut} className={classBtn}>
-            Log Out
+        <div className="space-x-5 font-bold">
+          <span><i className="text-base text-white">Acount: </i>{info.hoTen}</span>
+          <button onClick={handleLogOut} className="rounded rounded-full border-b-2 px-7 py-1 border-black border-2 bg-red-400 ">
+            SIGN OUT
           </button>
-        </>
+        </div>
       );
     } else {
       return (
         <>
           <button onClick={handleLogin} className={classBtn}>
-            Log In
+            SIGN IN
           </button>
           <button className={classBtn}>Sign Up</button>
         </>
@@ -40,10 +41,10 @@ export default function Header() {
     }
   };
   return (
-    <header className="fixed z-50 bg-white h-20 w-screen shadow-lg top-0">
+    <header id="header" className="fixed font-sans text-2xl text-pink-100 z-50 h-24 w-screen shadow-lg top-0">
       <div className="container mx-auto h-full flex items-center justify-between">
         <a href="/">
-          <span className="text-red-500 animate-pulse text-xl">CyperFlix</span>
+          <i className="text-red-500 text-6xl font-bold">BackToMovie</i>
         </a>
         <div className="space-x-5">{renderUserNav()}</div>
       </div>

@@ -46,3 +46,27 @@
 .tab-content {
   padding-top: 100px;
 }
+
+#header {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#ListMovie {
+  background-color: rgb(255, 245, 224);
+  padding: 5rem 0px;
+}
+#itemMovie:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+:where(.css-dev-only-do-not-override-1vr7spz).ant-card .ant-card-body {
+  padding: 0 !important;
+}
+
+:where(.css-dev-only-do-not-override-1vr7spz).ant-card-bordered {
+  border: 0px;
+}
+
+#detail {
+  background-color: rgb(255, 105, 105);
+}
