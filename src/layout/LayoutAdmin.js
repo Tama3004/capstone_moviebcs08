@@ -1,99 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
+  AppstoreOutlined,
+  ContainerOutlined,
+  DesktopOutlined,
+  MailOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { Button, Menu } from "antd";
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+const items = [
+  getItem("Option 1", "1", <PieChartOutlined />),
+  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem("Option 3", "3", <ContainerOutlined />),
+];
 
-
-const { Header, Content, Sider } = Layout;
-const items1 = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  }
-);
-const HomeLayout = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+const LayoutAdmin = () => {
+  const [collapsed, setCollapsed] = useState(false);
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
   return (
-    <Layout>
-      <Header
+    <div
+      style={{
+        width: 256,
+      }}
+    >
+      <Button
+        type="primary"
+        onClick={toggleCollapsed}
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingLeft: 200,
+          marginBottom: 16,
         }}
       >
-        <span className="text-white font-medium text-2xl">
-          Cyber Flix Admin
-        </span>
-        <button className="text-black bg-white rounded px-5 h-10 leading-10 shadow shadow-white">
-          Log in
-        </button>
-      </Header>
-      <Layout>
-        <Sider
-          theme="dark"
-          width={200}
-          style={{
-            overflow: "auto",
-            height: "100vh",
-            position: "fixed",
-            left: 0,
-            top: 0,
-            bottom: 0,
-          }}
-        >
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            style={{
-              height: "100%",
-              borderRight: 0,
-            }}
-            items={items2}
-          />
-        </Sider>
-        <Layout
-          style={{
-            marginLeft: 200,
-          }}
-        >
-          <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: colorBgContainer,
-            }}
-          >
-            <Outlet />
-          </Content>
-        </Layout>
-      </Layout>
-    </Layout>
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </Button>
+      <Menu
+        defaultSelectedKeys={["1"]}
+        defaultOpenKeys={["sub1"]}
+        mode="inline"
+        theme="dark"
+        inlineCollapsed={collapsed}
+        items={items}
+      />
+    </div>
   );
 };
-export default HomeLayout;
+export default LayoutAdmin;

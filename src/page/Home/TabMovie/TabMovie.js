@@ -89,7 +89,7 @@ export default function TabMovie() {
   };
   return (
     <div id="detail" className="py-28">
-      <div className="bg-white container shadow p-3 rounded border-l-black py-20 rounded rounded-3xl">
+      <div className="bg-white container shadow p-3  border-l-black py-20 rounded-3xl">
         <Tabs
           style={{ height: 500 }}
           tabPosition="left"

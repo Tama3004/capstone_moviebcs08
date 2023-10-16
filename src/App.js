@@ -7,6 +7,8 @@ import DetailMovie from "./page/DetailMovie/DetailMovie";
 import Header from "./component/Header";
 import Layout from "./template/Layout";
 import CheckOutPage from "./page/CheckOut/CheckOutPage";
+import LoginAdmin from "./page/LoginAdmin/LoginAdmin";
+import LayoutAdmin from "./layout/LayoutAdmin";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
               <CheckOutPage />
           }
         />
+        <Route path="/admin" element={<LayoutAdmin />} />
+        <Route path="/loginadmin" element={<LoginAdmin />} />
       </Routes>
     </BrowserRouter>
   );
