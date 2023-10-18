@@ -49,10 +49,10 @@ export default function Header() {
 
   let renderUserNav = () => {
     let classBtn =
-      "rounded rounded-full border-b-2 px-7 py-1 border-black border-2 bg-red-400 ";
+      "rounded rounded-full lg:border-b-2 md:px-4  px-2 py-1 lg:px-5 lg:py-1 border-black border-2 bg-red-400 lg:text-xl md:text-xl text-xs ";
     if (info) {
       return (
-        <div className="space-x-5 font-bold flex flex-col items-center lg:flex-row lg:items-center">
+        <div className="lg:space-x-5 font-bold flex flex-col items-center lg:flex-row lg:items-center">
           <span className="text-center lg:text-left">
             <i className="text-base text-white">Account: </i>
             {info.hoTen}
@@ -64,7 +64,7 @@ export default function Header() {
       );
     } else {
       return (
-        <div className="space-x-5 flex justify-cent lg:flex-row lg:items-center">
+        <div className="lg:space-x-5 space-x-1 flex justify-cent lg:flex-row lg:items-center">
           <button onClick={handleLogin} className={classBtn}>
             SIGN IN
           </button>

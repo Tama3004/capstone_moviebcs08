@@ -41,7 +41,7 @@ export default function DetailMovie() {
 
   const ImageContainer = styled.img`
     width: 100%;
-    height: 100%;
+    height: 80vh;
     object-fit: fill;
     aspect-ratio: 1/1;
     border-radius: 3rem;
