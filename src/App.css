@@ -38,7 +38,7 @@
 }
 
 @media (max-width: 767px) {
-  .hidden-mobile {
+  #detail-mobile {
     display: none;
   }
 }
@@ -67,6 +67,31 @@
   border: 0px;
 }
 
-#detail {
+.detail {
   background-color: rgb(255, 105, 105);
+}
+
+#infomation {
+  background-image: url("https://demo1.cybersoft.edu.vn/static/media/backapp.b46ef3a1.jpg");
+}
+
+#Footer {
+  background: rgb(20, 30, 70);
+}
+
+#detailPage {
+  background-color: rgb(255, 245, 224);
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .ant-tabs-left.ant-tabs-top > .ant-tabs-nav {
+    flex-direction: row;
+  }
+  .ant-tabs-left.ant-tabs-top > .ant-tabs-content-holder {
+    flex-direction: column;
+  }
+  .ant-tabs-left.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab {
+    margin-bottom: 0;
+  }
 }

@@ -7,6 +7,7 @@ import DetailMovie from "./page/DetailMovie/DetailMovie";
 import Header from "./component/Header";
 import Layout from "./template/Layout";
 import CheckOutPage from "./page/CheckOut/CheckOutPage";
+import SignUp from "./page/Register/SignUp";
 
 function App() {
   return (
@@ -36,12 +37,16 @@ function App() {
             </Layout>
           }
         />
+        <Route path="/checkout/:id" element={<CheckOutPage />} />
         <Route
-          path="/checkout/:id"
+          path="/signup"
           element={
-              <CheckOutPage />
+            <Layout>
+              <SignUp />
+            </Layout>
           }
         />
+        <Route path="/header" element={<Header />} />
       </Routes>
     </BrowserRouter>
   );

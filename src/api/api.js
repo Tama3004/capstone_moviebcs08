@@ -3,7 +3,7 @@ import { BASE_URL, TOKEN, configHeaders } from "./config";
 
 export let getListMovie = () => {
   return axios({
-    url: `${BASE_URL}/QuanLyPhim/LayDanhSachPhim?maNhom=GP00`,
+    url: `${BASE_URL}/QuanLyPhim/LayDanhSachPhim?maNhom=GP14`,
     method: "GET",
     headers: configHeaders(),
   });
@@ -19,7 +19,7 @@ export let getDetailMovie = (id) => {
 
 export let getMovieTheater = () => {
   return axios({
-    url: `${BASE_URL}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`,
+    url: `${BASE_URL}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP05`,
     method: "GET",
     headers: configHeaders(),
   });
@@ -63,5 +63,14 @@ export let postGheDaDat = () => {
     url: `${BASE_URL}/QuanLyNguoiDung/ThongTinTaiKhoan`,
     method: "POST",
     headers: configHeaders(),
+  });
+};
+
+export let postDangKy = (values) => {
+  return axios({
+    url: `${BASE_URL}/QuanLyNguoiDung/DangKy`,
+    method: "POST",
+    headers: configHeaders(),
+    data: values,
   });
 };

@@ -34,3 +34,9 @@
   color: greenyellow;
   border: greenyellow solid 2px;
 }
+
+@media (max-width: 860px) {
+  .ghe {
+    margin-left: 1px;
+  }
+}

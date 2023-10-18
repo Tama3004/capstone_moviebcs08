@@ -24,12 +24,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Desktop>
-          <FooterDesktop />
-        </Desktop>
-        <Mobile>
-          <FooterMobile />
-        </Mobile>
+        <FooterDesktop></FooterDesktop>
       </div>
     );
   }

@@ -34,7 +34,7 @@ export default function ListMovie() {
                 >
                   <NavLink
                     to={`/movie/${item.maPhim}`}
-                    className="text-white font-bold text-xl px-20 py-3 border-red-400 border-4 rounded rounded-full"
+                    className="text-white font-bold text-xl px-20 py-3 border-red-400 border-4 rounded-full"
                   >
                     <i>MUA VÉ</i>
                   </NavLink>

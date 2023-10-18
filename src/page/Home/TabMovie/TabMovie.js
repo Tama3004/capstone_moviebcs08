@@ -4,11 +4,13 @@ import { Tabs } from "antd";
 import moment from "moment";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 export default function TabMovie() {
   const [danhSachHeThongRap, setdanhSachHeThongRap] = useState([]);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const isTablet = useMediaQuery({ maxWidth: 896 }); // Kiểm tra kích thước màn hình là tablet
   const onChange = (key) => {
     console.log(key);
   };
@@ -61,7 +63,7 @@ export default function TabMovie() {
         children: (
           <Tabs
             style={{ height: 500 }}
-            tabPosition="left"
+            tabPosition={isTablet ? "top" : "left"}
             defaultActiveKey="1"
             items={heThongRap.lstCumRap.map((cumRap) => {
               return {
@@ -75,7 +77,9 @@ export default function TabMovie() {
                   </div>
                 ),
                 children: (
-                  <div style={{ height: 500, overflow: "scroll" }}>
+                  <div
+                    style={{ height: isTablet ? 330 : 500, overflow: "scroll" }}
+                  >
                     {renderDsPhim(cumRap.danhSachPhim)}
                   </div>
                 ),
@@ -87,12 +91,14 @@ export default function TabMovie() {
       };
     });
   };
+  const tabPosition = isTablet ? "top" : "left"; // Xác định giá trị tabPosition dựa trên isTablet
+
   return (
-    <div id="detail" className="py-28">
-      <div className="bg-white container shadow p-3 rounded border-l-black py-20 rounded rounded-3xl">
+    <div id="detail-mobile" className="detail py-28">
+      <div className="bg-white container shadow p-3 border-l-black py-20  rounded-3xl">
         <Tabs
           style={{ height: 500 }}
-          tabPosition="left"
+          tabPosition={tabPosition}
           defaultActiveKey="1"
           items={handleHeThongRap()}
           onChange={onChange}

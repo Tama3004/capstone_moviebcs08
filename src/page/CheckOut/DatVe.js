@@ -132,9 +132,9 @@ export default function DatVe() {
   return (
     <div className="h-screen">
       {isLoading && <Spinner />}
-      <div className="grid grid-cols-12">
-        <div className="col-span-8">{renderGhe()}</div>
-        <div className="col-span-4 border border-black shadow-lg rounded">
+      <div className="grid lg:grid-cols-12 sm:grid-cols-1">
+        <div className="lg:col-span-8">{renderGhe()}</div>
+        <div className="lg:col-span-4 sm:col-span-1 border border-black shadow-lg rounded">
           <div className="p-3">
             <h className="text-4xl flex justify-center items-center">
               Thanh Toán
