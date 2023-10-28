@@ -10,12 +10,12 @@ const SignUp = () => {
     postDangKy(values)
       .then((res) => {
         console.log(res);
-        message.success("Dang Ky Thanh Cong");
+        message.success("Đăng ký thành công");
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
-        message.success("Da say ra loi");
+        message.erro("Tài khoản đã tồn tại");
       });
   };
 

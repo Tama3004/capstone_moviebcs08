@@ -27,10 +27,10 @@ const FormLogin = () => {
         // đẩy data của user về localStorage
         userLocalStorage.set(res.data.content);
         navigate("/");
-        console.log(res);
+        message.success("Đăng nhập thành công")
       })
       .catch((err) => {
-        message.error("ERRO");
+        message.error("Sai tài khoản hoặc mật khẩu");
         console.log(err);
       });
   };

@@ -24,7 +24,7 @@ export default function DetailMovie() {
   const DetailPageContainer = styled.div`
     margin: 0 auto;
     padding-top: 2.8rem;
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       padding-top: 1rem;
     }
   `;
@@ -33,7 +33,7 @@ export default function DetailMovie() {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       grid-template-columns: 1fr;
       grid-auto-rows: auto;
     }
@@ -46,7 +46,7 @@ export default function DetailMovie() {
     aspect-ratio: 1/1;
     border-radius: 3rem;
     grid-column: 1 / span 1;
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       grid-column: 1;
       grid-row: 1;
     }
@@ -55,7 +55,7 @@ export default function DetailMovie() {
   const ContentContainer = styled.div`
     padding: 2rem;
     grid-column: 2 / span 2;
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       padding: 1rem;
       grid-column: 1;
       grid-row: 2;

@@ -46,7 +46,6 @@ function App() {
             </Layout>
           }
         />
-        <Route path="/header" element={<Header />} />
       </Routes>
     </BrowserRouter>
   );
